@@ -1,0 +1,36 @@
+{% load static %}
+<nav>
+
+
+    <!-- <div id="logo--wrapper">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/networklogo.png' %}" alt="EventNet IIIT Logo" id="logo--image" style="max-height: 40px; margin-right: 10px;">
+            <h4 id="logo--text">EventNet IIIT</h4>
+        </a>
+    </div> -->
+    <div id="logo--wrapper" style="display: flex; align-items: center;">
+        <a href="{% url 'home' %}">
+            <!-- <img src="{% static 'images/networklogo.png' %}" alt="EventNet IIIT Logo" id="logo--image" style="max-height: 40px; "> -->
+            <h4 id="logo--text" style="margin: 0;">IIIT EventBloom</h4>
+        </a>
+    </div>
+    
+
+    <div>
+
+        <!-- <a href="#">Events</a> -->
+        <!-- <a href="#">Hall of fame</a> -->
+    </div>
+
+    <div id="nav--col3">
+        {% if request.user.is_authenticated %}
+        <a class="btn btn--secondary" href="{% url 'account' %}">{{request.user.name}}</a>
+        <a class="btn btn--primary" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="btn btn--secondary" href="{% url 'login' %}">Login</a>
+        <a class="btn btn--primary" href="{% url 'register' %}">Register</a>
+
+        {% endif %}
+    </div>
+
+</nav>
